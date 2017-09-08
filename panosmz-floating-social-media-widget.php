@@ -36,6 +36,26 @@ function fsmw_initialize_data() {
 	return($fsmwInitialData);
 }
 
+//updates option data
+function fsmw_update_data( $data ) {
+	$fsmwData = get_option('fsmw_options');
+
+	foreach ($data as $postKey => $postData) {
+		$index = fsmw_get_array_index($postKey, $fsmwData['social-media-links']);
+		$fsmwData['social-media-links'][$index]['url'] = $postData;
+	}
+
+	update_option('fsmw_options', $fsmwData);
+}
+
+//searches array for key
+function fsmw_get_array_index( $slug , $dataArray) {
+	for($i = 0, $l = count($dataArray); $i < $l; ++$i) {
+		if(in_array($slug, $dataArray[$i])) return $i;
+	}
+	return false;
+}
+
 //Load social links data
 function fsmw_load_data() {
 	
@@ -63,18 +83,17 @@ add_action('admin_menu', 'fsmw_options_page');
 
 function fsmw_options_page_view() {
 	//on form post
-
-	/*$_POST['fsmw_facebook'], $_POST['fsmw_twitter'], $_POST['fsmw_linkedin'], $_POST['fsmw_youtube'], $_POST['fsmw_googleplus'], $_POST['fsmw_instagram']))*/
-
 	if(isset($_POST['Submit'])) {
 		$postValues = array(
-			'facebook' => esc_attr( $_POST('fsmw_facebook' )),
-			'twitter' => esc_attr( $_POST('fsmw_twitter' )),
-			'linkedin' => esc_attr($_POST('fsmw_linkedin')),
-			'youtube' => esc_attr($_POST('fsmw_youtube')),
-			'googleplus' => esc_attr($_POST('fsmw_googleplus')),
-			'instagram' => esc_attr($_POST('fsmw_instagram'))
+			'facebook' => esc_attr( $_POST['fsmw_facebook' ]),
+			'twitter' => esc_attr( $_POST['fsmw_twitter' ]),
+			'linkedin' => esc_attr($_POST['fsmw_linkedin']),
+			'youtube' => esc_attr($_POST['fsmw_youtube']),
+			'googleplus' => esc_attr($_POST['fsmw_googleplus']),
+			'instagram' => esc_attr($_POST['fsmw_instagram'])
 			);
+
+		fsmw_update_data($postValues);
 	}
 
 
