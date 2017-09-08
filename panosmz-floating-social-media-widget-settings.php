@@ -18,6 +18,7 @@
 			?>
 			<div class="fsmw-settings-form-row">
 				<input class="fsmw-button" type="submit" name="Submit" value="Save Changes">
+				<img src="<?php echo WP_PLUGIN_URL . '/panosmz-floating-social-media-widget/assets/loading.svg'; ?>" height="25" id="fsmw-settings-loading">
 			</div>
 		</div>
 	</form>
@@ -93,6 +94,25 @@
 		text-decoration: none;
 	}
 
+	.fsmw-settings-wrapper #fsmw-settings-loading {
+		opacity: 0.3;
+		margin-bottom: -6px;
+		display: none;
+	}
+
+	@-moz-keyframes spin {
+    	from { -moz-transform: rotate(360deg); }
+    	to { -moz-transform: rotate(0deg); }
+	}
+	@-webkit-keyframes spin {
+	    from { -webkit-transform: rotate(360deg); }
+	    to { -webkit-transform: rotate(0deg); }
+	}
+	@keyframes spin {
+	    from {transform:rotate(360deg);}
+	    to {transform:rotate(0deg);}
+	}
+
 </style>
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
@@ -106,6 +126,13 @@
 		$('.fsmw-settings-wrapper .wrap .fsmw-settings-form-row input').change(function() {
 			validate($(this));
 			
+		});
+
+		//button click
+		$('.fsmw-settings-wrapper .wrap .fsmw-settings-form-row .fsmw-button').click(function() {
+			$(this).css('opacity', '0');
+			$('.fsmw-settings-wrapper #fsmw-settings-loading').css('-webkit-animation', 'spin 3s infinite linear');
+			$('.fsmw-settings-wrapper #fsmw-settings-loading').show();
 		});
 
 		//update label color according to the input's data-color value
