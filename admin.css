@@ -1,0 +1,108 @@
+.fsmw-settings-wrapper {
+	padding: 10px;
+	width: 500px;
+}
+
+.fsmw-settings-wrapper h2 {
+	font-weight: 200;
+}
+
+.fsmw-settings-wrapper .fsmw-settings-logo {
+	font-weight: 600;
+	color: #37a7ca;
+	padding-right: 5px;
+}
+
+.fsmw-settings-wrapper .fsmw-settings-description {
+	color: #737373;
+	padding-bottom: 20px;
+}
+
+.fsmw-settings-wrapper .wrap {
+	border: 1px solid #cecece;
+	width: 300px;
+	padding: 20px 55px 20px 15px;
+	margin-bottom: 20px;
+}
+
+.fsmw-settings-wrapper .links {
+	height: 229px;
+}
+
+.fsmw-settings-wrapper .settings {
+	height: 30px;
+}
+
+.fsmw-settings-wrapper .wrap-button {
+	height: 19px;
+}
+
+.fsmw-settings-wrapper .settings label {
+	color: #737373;
+}
+
+.fsmw-settings-wrapper .wrap .fsmw-settings-form-row {
+	float: right;
+	height: 40px;
+}
+
+.fsmw-settings-wrapper .wrap .fsmw-settings-form-row input {
+	margin-right: 0px;
+}
+
+.fsmw-settings-wrapper .wrap .fsmw-settings-form-row .fsmw-button {
+	clear: both;
+	border: none;
+	border-radius: 2px;
+	padding: 5px 10px;
+	background-color: #37a7ca;
+	color: #fff;
+}
+
+.fsmw-settings-wrapper .wrap .fsmw-settings-form-row .fsmw-button:hover {
+	cursor: pointer;
+}
+
+.fsmw-settings-wrapper .wrap .fsmw-settings-form-row .fsmw-settings-confirm {
+	opacity: 0.3;
+	margin-bottom: -6px;
+	display: none;
+}
+
+.fsmw-settings-wrapper .fsmw-wrap-tag {
+	display: block;
+	margin-top: -30px;
+	background-color: #f1f1f1;
+	width: 62px;
+	padding-left: 9px;
+	color: #737373;
+	margin-bottom: 6px;
+}
+
+.fsmw-settings-wrapper .fsmw-copyright {
+	margin-top: 40px;
+	font-weight: 200;
+}
+
+.fsmw-settings-wrapper .fsmw-copyright a {
+	text-decoration: none;
+}
+
+.fsmw-settings-wrapper #fsmw-settings-loading {
+	opacity: 0.3;
+	margin-bottom: -6px;
+	display: none;
+}
+
+@-moz-keyframes spin {
+	from { -moz-transform: rotate(360deg); }
+	to { -moz-transform: rotate(0deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(360deg); }
+    to { -webkit-transform: rotate(0deg); }
+}
+@keyframes spin {
+    from {transform:rotate(360deg);}
+    to {transform:rotate(0deg);}
+}
