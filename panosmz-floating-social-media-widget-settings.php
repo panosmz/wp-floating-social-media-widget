@@ -5,6 +5,7 @@
 	quis nostrud exercitation.</p>
 	<form name="fsmw-settings-form" method="post" action="">
 		<div class="wrap settings">
+			<span class="fsmw-wrap-tag">Settings</span>
 			<div class="fsmw-settings-form-row">
 				<label for="fsmw_theme">Theme: </label>
 				<select name="fsmw_theme">
@@ -21,6 +22,7 @@
 			</div>
 		</div>
 		<div class="wrap links">
+			<span class="fsmw-wrap-tag">Links</span>
 			<?php
 			foreach ($fsmwData['social-media-links'] as $fsmwLinks) {
 			?>
@@ -32,6 +34,9 @@
 			<?php
 			}
 			?>
+		</div>
+		<div class="wrap wrap-button">
+			<span class="fsmw-wrap-tag">Save</span>
 			<div class="fsmw-settings-form-row">
 				<input class="fsmw-button" type="submit" name="Submit" value="Save Changes">
 				<img src="<?php echo WP_PLUGIN_URL . '/panosmz-floating-social-media-widget/assets/loading.svg'; ?>" height="25" id="fsmw-settings-loading">
@@ -80,6 +85,10 @@
 		height: 30px;
 	}
 
+	.fsmw-settings-wrapper .wrap-button {
+		height: 19px;
+	}
+
 	.fsmw-settings-wrapper .settings label {
 		color: #737373;
 	}
@@ -95,7 +104,6 @@
 
 	.fsmw-settings-wrapper .wrap .fsmw-settings-form-row .fsmw-button {
 		clear: both;
-		margin-top: 20px;
 		border: none;
 		border-radius: 2px;
 		padding: 5px 10px;
@@ -113,8 +121,18 @@
 		display: none;
 	}
 
+	.fsmw-settings-wrapper .fsmw-wrap-tag {
+		display: block;
+		margin-top: -30px;
+		background-color: #f1f1f1;
+		width: 62px;
+    	padding-left: 9px;
+    	color: #737373;
+    	margin-bottom: 6px;
+	}
+
 	.fsmw-settings-wrapper .fsmw-copyright {
-		margin-top: 60px;
+		margin-top: 40px;
 		font-weight: 200;
 	}
 
