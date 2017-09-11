@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Floating Social Media Widget
-Description: Displays a floating social media links widget on the webpage.
+Description: Displays a floating social media links widget on the webpage. Configure it under Settings - Floating Social Media Widget.
 Author: Panos Mazarakis
 Version: 0.9.0
 Author URI: https://panosmazarakis.com

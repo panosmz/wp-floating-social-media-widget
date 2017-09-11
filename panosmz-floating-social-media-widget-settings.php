@@ -1,8 +1,6 @@
 <div class="fsmw-settings-wrapper">
 	<h2><span class="fsmw-settings-logo">Floating Social Media Widget</span> - Configure</h2>
-	<p class="fsmw-settings-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation.</p>
+	<p class="fsmw-settings-description">Please enter your social media URLs on the corresponding fields below. Empty fields do not appear on the website. You can also change the theme from the dropdown in the Settings section. After you are done, click the button to save changes.</p>
 	<form name="fsmw-settings-form" method="post" action="">
 		<div class="wrap settings">
 			<span class="fsmw-wrap-tag">Settings</span>
