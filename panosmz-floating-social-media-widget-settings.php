@@ -4,7 +4,23 @@
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	quis nostrud exercitation.</p>
 	<form name="fsmw-settings-form" method="post" action="">
-		<div class="wrap">
+		<div class="wrap settings">
+			<div class="fsmw-settings-form-row">
+				<label for="fsmw_theme">Theme: </label>
+				<select name="fsmw_theme">
+					<?php 
+
+					foreach ($fsmwData['theme-options'] as $themeOption) {
+						?>
+						<option value="<?php echo $themeOption['slug']; ?>"<?php if ($themeOption['slug'] == $fsmwData['theme']) { echo 'selected'; } ?>><?php echo $themeOption['title']; ?></option>
+						<?php
+					}
+
+					?>
+				</select>
+			</div>
+		</div>
+		<div class="wrap links">
 			<?php
 			foreach ($fsmwData['social-media-links'] as $fsmwLinks) {
 			?>
@@ -52,8 +68,20 @@
 	.fsmw-settings-wrapper .wrap {
 		border: 1px solid #cecece;
 		width: 300px;
-		height: 300px;
 		padding: 20px 55px 20px 15px;
+		margin-bottom: 20px;
+	}
+
+	.fsmw-settings-wrapper .links {
+		height: 229px;
+	}
+
+	.fsmw-settings-wrapper .settings {
+		height: 30px;
+	}
+
+	.fsmw-settings-wrapper .settings label {
+		color: #737373;
 	}
 
 	.fsmw-settings-wrapper .wrap .fsmw-settings-form-row {
@@ -86,7 +114,7 @@
 	}
 
 	.fsmw-settings-wrapper .fsmw-copyright {
-		margin-top: 40px;
+		margin-top: 60px;
 		font-weight: 200;
 	}
 

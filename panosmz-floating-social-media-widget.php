@@ -18,9 +18,11 @@ function fsmw_initialize_data() {
 		array('slug'=>'instagram','title'=>'Instagram', 'color'=>'#e95950', 'url'=>''),
 		);
 
-	$fsmwThemeOptions = array('light', 'dark');
+	$fsmwThemeOptions = array(array('slug'=>'light', 'title'=>'Transparent Light'), 
+							  array('slug'=>'dark',  'title'=>'Transparent Dark')
+							  );
 
-	$fsmwFloatOptions = array('left', 'right');
+	$fsmwFloatOptions = array('slug'=>'left', 'slug'=>'right');
 
 
 	$fsmwInitialData = array(
@@ -40,10 +42,14 @@ function fsmw_initialize_data() {
 function fsmw_update_data( $data ) {
 	$fsmwData = get_option('fsmw_options');
 
-	foreach ($data as $postKey => $postData) {
+	// update social links data
+	foreach ($data['socialLinks'] as $postKey => $postData) {
 		$index = fsmw_get_array_index($postKey, $fsmwData['social-media-links']);
 		$fsmwData['social-media-links'][$index]['url'] = $postData;
 	}
+
+	// update settings (theme)
+	$fsmwData['theme'] = $data['settings']['theme'];
 
 	update_option('fsmw_options', $fsmwData);
 }
@@ -93,13 +99,22 @@ add_action('admin_menu', 'fsmw_options_page');
 function fsmw_options_page_view() {
 	//on form post
 	if(isset($_POST['Submit'])) {
-		$postValues = array(
+		$postLinks = array(
 			'facebook' => esc_attr( $_POST['fsmw_facebook' ]),
 			'twitter' => esc_attr( $_POST['fsmw_twitter' ]),
 			'linkedin' => esc_attr($_POST['fsmw_linkedin']),
 			'youtube' => esc_attr($_POST['fsmw_youtube']),
 			'googleplus' => esc_attr($_POST['fsmw_googleplus']),
 			'instagram' => esc_attr($_POST['fsmw_instagram'])
+			);
+
+		$postSettings = array(
+			'theme' => esc_attr( $_POST['fsmw_theme'] )
+			);
+
+		$postValues = array(
+			'socialLinks' => $postLinks,
+			'settings' => $postSettings
 			);
 
 		fsmw_update_data($postValues);
