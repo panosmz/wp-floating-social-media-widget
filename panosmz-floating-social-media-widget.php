@@ -3,7 +3,7 @@
 Plugin Name: Floating Social Media Widget
 Description: Displays a floating social media links widget on the webpage.
 Author: Panos Mazarakis
-Version: 1.0
+Version: 0.9.0
 Author URI: https://panosmazarakis.com
 */
 
@@ -144,8 +144,6 @@ register_activation_hook( __FILE__, 'fsmw_activate' );
 
 //on plugin deactivation
 function fsmw_deactivate() {
-	//remove plugin options
-	delete_option( 'fsmw_options' );
 }
 register_deactivation_hook(__FILE__, 'fsmw_deactivate');
 
