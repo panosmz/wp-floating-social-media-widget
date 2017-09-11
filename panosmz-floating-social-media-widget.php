@@ -56,23 +56,31 @@ function fsmw_get_array_index( $slug , $dataArray) {
 	return false;
 }
 
-//Load social links data
-function fsmw_load_data() {
-	
-}
-
-//Get html
-function fsmw_get_html( $options ) {
-	
-}
-
 //Main function
-function fsmw() {
-	
+function fsmw( $content ) {
+	$fsmwData = get_option('fsmw_options');
+
+	$linkHtml = '<div class="fsmw-container fsmw-float-l--'.$fsmwData['float-desktop'].' fsmw-float-m--'.$fsmwData['float-mobile'].' fsmw-theme--'.$fsmwData['theme'].'">';
+
+	foreach ($fsmwData['social-media-links'] as $socialLink) {
+		if(!empty($socialLink['url'])) {
+			$linkHtml .= '<a target="_blank" href="'.$socialLink['url'].'">';
+			$linkHtml .= '<div class="fsmw-icon fsmw-site--'.$socialLink['slug'].'">';
+			$linkHtml .= '<img src="'.plugin_dir_url( __FILE__ ).'assets/fsmw-'.$socialLink['slug'].'.png" alt="'.$socialLink['title'].'">';
+			$linkHtml .= '</div></a>';
+		}
+	}
+
+	$linkHtml .= '</div>';
+
+	wp_register_style ('fsmw', plugin_dir_url( __FILE__ ).'style.css' );
+	wp_enqueue_style ('fsmw');
+
+	echo $linkHtml;
 }
 
 //Display the widget
-add_action( 'the_content', 'fsmw' );
+add_filter( 'wp_footer', 'fsmw' );
 
 
 //add options page on the settings menu
@@ -80,7 +88,6 @@ function fsmw_options_page() {
 	add_options_page( 'Social Media Icons Widget Settings', 'Floating Social Media Icons', 'edit_plugins', 'fsmw', 'fsmw_options_page_view' );
 }
 add_action('admin_menu', 'fsmw_options_page');
-
 
 //display widget options page
 function fsmw_options_page_view() {
@@ -134,8 +141,6 @@ function fsmw_uninstall() {
 	delete_option( $fsmw_options );
 }
 register_uninstall_hook(__FILE__, 'fsmw_uninstall');
-
-
 
 
 ?>
