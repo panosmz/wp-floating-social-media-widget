@@ -50,8 +50,8 @@
 	</div>
 </div>
 <?php 
-	wp_register_style ('fsmwAdmin', plugin_dir_url( __FILE__ ).'admin.css' );
+	wp_register_style ('fsmwAdmin', plugin_dir_url( __FILE__ ).'css/admin.css' );
 	wp_enqueue_style ('fsmwAdmin');
 
-	wp_enqueue_script( 'fsmwSettings', plugin_dir_url( __FILE__ ).'settings.js', array(), '1.0.0', true );
+	wp_enqueue_script( 'fsmwSettings', plugin_dir_url( __FILE__ ).'js/settings.js', array(), '1.0.0', true );
 ?>

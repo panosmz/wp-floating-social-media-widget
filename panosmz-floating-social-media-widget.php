@@ -79,7 +79,7 @@ function fsmw( $content ) {
 
 	$linkHtml .= '</div>';
 
-	wp_register_style ('fsmw', plugin_dir_url( __FILE__ ).'style.css' );
+	wp_register_style ('fsmw', plugin_dir_url( __FILE__ ).'css/style.css' );
 	wp_enqueue_style ('fsmw');
 
 	echo $linkHtml;
