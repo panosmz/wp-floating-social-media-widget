@@ -81,6 +81,8 @@ function fsmw_options_page() {
 }
 add_action('admin_menu', 'fsmw_options_page');
 
+
+//display widget options page
 function fsmw_options_page_view() {
 	//on form post
 	if(isset($_POST['Submit'])) {
@@ -94,6 +96,12 @@ function fsmw_options_page_view() {
 			);
 
 		fsmw_update_data($postValues);
+
+		?>
+    		<div class="notice notice-success is-dismissible">
+    		    <p><?php _e( 'Settings saved!', 'fsmw-message' ); ?></p>
+    		</div>
+    	<?php
 	}
 
 
